@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_labels_tools",
+  "info": {
+    "name": "tools",
+    "icon": "tools"
+  },
+  "options": {},
+  "attributes": {
+    "tool": {
+      "type": "string"
+    }
+  }
+}

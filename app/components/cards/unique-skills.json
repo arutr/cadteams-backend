@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_cards_unique_skills",
+  "info": {
+    "name": "uniqueSkills",
+    "icon": "check-double"
+  },
+  "options": {},
+  "attributes": {
+    "skill": {
+      "type": "text"
+    }
+  }
+}

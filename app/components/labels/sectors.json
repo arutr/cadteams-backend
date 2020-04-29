@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_labels_sectors",
+  "info": {
+    "name": "sectors",
+    "icon": "tags"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}
