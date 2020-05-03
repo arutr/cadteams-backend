@@ -12,7 +12,7 @@ services:
     links:
       - postgres:postgres
     volumes:
-      - ./app:/srv/app
+      - .:/srv/app
     ports:
       - '1337:1337'
 
@@ -21,7 +21,7 @@ services:
     environment:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
-    volumes:
-      - ./data:/data/postgres
+    #volumes:
+    #  - ./data:/data/postgres
     ports:
       - '5432:5432'

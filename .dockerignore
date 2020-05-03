@@ -1,0 +1,8 @@
+build
+Dockerfile
+docker-compose.yaml
+node_modules
+.cache
+.editorconfig
+.eslint*
+.git*
