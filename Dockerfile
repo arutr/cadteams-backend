@@ -17,4 +17,4 @@ WORKDIR /api
 COPY --from=builder /api .
 
 EXPOSE 1337
-CMD ["yarn", "start"]
+CMD ["node_modules/.bin/strapi", "start"]
