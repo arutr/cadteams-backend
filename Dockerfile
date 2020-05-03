@@ -9,7 +9,7 @@ COPY . .
 
 RUN yarn build
 
-FROM mhart/alpine-node
+FROM node:12-alpine
 ARG ENVIRONMENT=production
 ENV NODE_ENV $ENVIRONMENT
 WORKDIR /api
