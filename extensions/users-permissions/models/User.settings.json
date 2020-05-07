@@ -24,7 +24,8 @@
     },
     "provider": {
       "type": "string",
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "password": {
       "type": "password",
@@ -40,12 +41,14 @@
     "confirmed": {
       "type": "boolean",
       "default": false,
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "blocked": {
       "type": "boolean",
       "default": false,
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "role": {
       "model": "role",
@@ -53,7 +56,7 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "profilePhoto": {
+    "profilePicture": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
