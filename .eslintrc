@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "env": {
     "commonjs": true,
     "es6": true,
@@ -13,6 +13,9 @@
       "jsx": false
     },
     "sourceType": "module"
+  },
+  "rules": {
+    "consistent-return": 0
   },
   "globals": {
     "strapi": true
