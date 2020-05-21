@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "language": {
+    "label": {
       "type": "string"
     }
   }
