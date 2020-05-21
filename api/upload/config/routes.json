@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/upload/me",
+      "handler": "Upload.uploadMe",
+      "config": {
+        "policies": [],
+        "description": "Upload a file to a user media entry",
+        "tag": {
+          "plugin": "upload",
+          "name": "File",
+          "actionType": "uploadMe"
+        }
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/upload/me/:id",
+      "handler": "Upload.destroyMe",
+      "config": {
+        "policies": [],
+        "description": "Delete a file uploaded by a user",
+        "tag": {
+          "plugin": "upload",
+          "name": "File",
+          "actionType": "destroyMe"
+        }
+      }
+    }
+  ]
+}
