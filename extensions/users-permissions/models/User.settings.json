@@ -93,7 +93,8 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ],
       "plugin": "upload",
       "required": false
@@ -109,6 +110,21 @@
     "phone": {
       "type": "string",
       "maxLength": 13
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "individual",
+        "enterprise"
+      ],
+      "default": "individual",
+      "required": true
+    },
+    "company": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
     }
   }
 }
