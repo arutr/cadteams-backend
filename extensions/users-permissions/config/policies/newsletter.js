@@ -3,15 +3,17 @@ const Mailchimp = require('mailchimp-api-v3');
 module.exports = async (ctx, next) => {
   await next();
 
-  if (process.env.NODE_ENV !== 'development' && ctx.status === 200 && ctx.request.body.newsletter) {
+  if (process.env.NODE_ENV !== 'development' && ctx.status === 200) {
     const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
-    const { email, username, type } = ctx.request.body;
+    const {
+      email, newsletter, username, type,
+    } = ctx.request.body;
 
     try {
       await mailchimp.post(`/lists/${process.env.MAILCHIMP_SIGNUP_LIST_ID}/members`, {
         email_address: email,
         email_type: 'html',
-        status: 'subscribed',
+        status: newsletter ? 'subscribed' : 'transactional',
         language: 'en',
         merge_fields: {
           FNAME: username.split(' ')[0],
@@ -25,11 +27,11 @@ module.exports = async (ctx, next) => {
             marketing_permission_id: '3c570a8376',
             text: `I would like to receive occasional newsletters and important updates from
             CADteams via email`,
-            enabled: true,
+            enabled: !!newsletter,
           },
         ],
       });
-      strapi.log.info(`${email} signed up to the newsletter.`);
+      strapi.log.info(`${email} added to Mailchimp, newsletter: ${!!newsletter}`);
     } catch (error) {
       strapi.log.error('Newsletter signup failed:');
       strapi.log.error(error);
