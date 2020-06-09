@@ -54,7 +54,8 @@
       "model": "role",
       "via": "users",
       "plugin": "users-permissions",
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "profilePicture": {
       "model": "file",
@@ -125,6 +126,13 @@
     },
     "website": {
       "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 3
     }
   }
 }
