@@ -36,7 +36,6 @@ module.exports = {
     );
 
     const data = sanitizeUser(updatedData);
-
     ctx.send(data);
   },
 };

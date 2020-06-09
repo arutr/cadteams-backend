@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/individuals",
+      "handler": "User.findIndividuals",
+      "config": {
+        "policies": ["plugins::users-permissions.isAuthenticated"],
+        "description": "Fetch individuals with sufficient profiles"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/individuals/:id",
+      "handler": "User.findIndividual",
+      "config": {
+        "policies": ["plugins::users-permissions.isAuthenticated"],
+        "description": "Fetch an individual profile"
+      }
+    }
+  ]
+}
