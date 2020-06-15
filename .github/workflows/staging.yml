@@ -10,6 +10,7 @@ jobs:
       - name: Dump Postgres database
         run: |
           sudo docker exec -t server_postgres_1 pg_dump -c -U strapi strapi-staging > dump-staging.sql
+
       - name: Upload database dump
         uses: actions/upload-artifact@v1
         with:
