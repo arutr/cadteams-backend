@@ -9,12 +9,12 @@ jobs:
     steps:
       - name: Dump Postgres database
         run: |
-          sudo docker exec -t server_postgres_1 pg_dump -c -U strapi strapi-staging | gzip > dump-staging.sql.gz
+          sudo docker exec -t server_postgres_1 pg_dump -c -U strapi strapi-staging > dump-staging.sql
       - name: Upload database dump
         uses: actions/upload-artifact@v1
         with:
           name: dump-staging
-          path: dump-staging.sql.gz
+          path: dump-staging.sql
   build:
     runs-on: ubuntu-latest
     steps:
