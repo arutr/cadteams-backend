@@ -132,6 +132,22 @@
     "country": {
       "type": "string",
       "maxLength": 3
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "instantBooking": {
+      "type": "boolean",
+      "default": false
+    },
+    "dailyRate": {
+      "type": "integer"
+    },
+    "history": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timeline.work-history"
     }
   }
 }
