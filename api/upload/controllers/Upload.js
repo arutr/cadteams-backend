@@ -56,6 +56,7 @@ module.exports = {
       id: user.id,
       model: 'user',
       field: data.field,
+      fileInfo: data.fileInfo,
     }, files, 'users-permissions');
 
     await strapi.plugins['users-permissions'].controllers.user.me(ctx);
