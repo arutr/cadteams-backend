@@ -36,43 +36,77 @@ module.exports = {
 
     if (user.type === 'individual') {
       individual = _.pick(data, [
-        'designs',
         'id',
+        'type',
         'profilePicture',
+        'username',
         'specialization',
         'sectors',
-        'type',
-        'username',
+        'location',
+        'country',
+        'experience',
+        'languages',
+        'tools',
+        'designs',
+        'description',
       ]);
+      const [firstName, lastName] = anonymizeUsername(individual.username);
+      individual.username = `${firstName}${lastName[0]}.`;
     } else if (user.type === 'enterprise') {
-      individual = _.omit(data, ['email']);
+      individual = _.omit(data, ['email', 'updated_by']);
     }
 
     ctx.send(individual);
   },
   async findIndividuals(ctx) {
-    const users = await strapi.query('user', 'users-permissions').find(
-      { type: 'individual' },
-      ['sectors', 'designs'],
+    const {
+      query: {
+        sectors,
+        specialization,
+        ...filters
+      },
+    } = ctx;
+    let users = await strapi.query('user', 'users-permissions').find(
+      {
+        type: 'individual',
+        dailyRate_gt: 0,
+        _or: [
+          { phone_ne: 0 },
+          { contactEmail_gt: 0 },
+        ],
+        specialization_in: specialization,
+        ...filters,
+      },
+      ['designs', 'profilePicture', 'sectors'],
     );
-    const data = users.reduce((acc, individual) => {
-      const {
-        id, username, sectors, designs,
-      } = individual;
+
+    if (sectors) {
+      users = users.filter((user) => user.sectors.some(({ label }) => sectors.includes(label)));
+    }
+
+    const response = users.reduce((acc, individual) => {
+      const { username, designs } = individual;
       const preview = designs.find((design) => design.mime.startsWith('image/'));
       const [firstName, lastName] = anonymizeUsername(username);
 
       if (preview) {
+        const data = _.pick(individual, [
+          'id',
+          'specialization',
+          'profilePicture',
+          'verified',
+          'instantBooking',
+          'dailyRate',
+        ]);
         return acc.concat({
-          id,
-          username: `${firstName} ${lastName[0]}.`,
-          sectors,
+          username: `${firstName}${lastName[0]}.`,
           preview,
+          ...data,
         });
       }
 
       return acc;
     }, []);
-    ctx.send(data);
+    ctx.send(response);
   },
 };
