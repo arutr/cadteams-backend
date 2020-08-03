@@ -12,7 +12,6 @@ RUN yarn build
 FROM node:12-alpine
 ARG ENVIRONMENT=production
 ENV NODE_ENV $ENVIRONMENT
-ENV ENV_PATH ./.$ENVIRONMENT.env
 WORKDIR /api
 
 COPY --from=builder /api .
