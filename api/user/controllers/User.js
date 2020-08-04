@@ -70,6 +70,7 @@ module.exports = {
       {
         type: 'individual',
         dailyRate_gt: 0,
+        _sort: 'verified:DESC',
         _or: [
           { phone_ne: 0 },
           { contactEmail_gt: 0 },
