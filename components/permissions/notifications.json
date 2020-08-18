@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_permissions_notifications",
+  "info": {
+    "name": "Notifications",
+    "icon": "sms"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "connection"
+      ],
+      "unique": false,
+      "required": true
+    },
+    "email": {
+      "type": "boolean",
+      "default": true
+    },
+    "sms": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
