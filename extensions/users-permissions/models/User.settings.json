@@ -148,6 +148,11 @@
       "type": "component",
       "repeatable": true,
       "component": "timeline.work-history"
+    },
+    "notifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "permissions.notifications"
     }
   }
 }
