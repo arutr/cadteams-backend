@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "connections",
+  "info": {
+    "name": "Connection"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "acquaintance": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "connected"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

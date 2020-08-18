@@ -58,6 +58,11 @@ module.exports = {
 
     ctx.send(individual);
   },
+  /**
+   * Retrieve Individuals
+   * @param ctx
+   * @returns {Promise<void>}
+   */
   async findIndividuals(ctx) {
     const {
       query: {

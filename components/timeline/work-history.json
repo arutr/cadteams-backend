@@ -28,12 +28,10 @@
     },
     "startYear": {
       "type": "integer",
-      "min": 1980,
       "required": true
     },
     "endYear": {
-      "type": "integer",
-      "min": 1980
+      "type": "integer"
     }
   }
 }
