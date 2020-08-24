@@ -50,11 +50,12 @@ module.exports = {
         'designs',
         'description',
       ]);
-      const [firstName, lastName] = anonymizeUsername(individual.username);
-      individual.username = `${firstName}${lastName[0]}.`;
     } else if (user.type === 'enterprise') {
       individual = _.omit(data, ['email', 'updated_by']);
     }
+
+    const [firstName, lastName] = anonymizeUsername(individual.username);
+    individual.username = `${firstName}${lastName[0]}.`;
 
     ctx.send(individual);
   },
