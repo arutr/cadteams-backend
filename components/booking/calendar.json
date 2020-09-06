@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_booking_calendars",
+  "info": {
+    "name": "Calendar",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "unavailableDates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "booking.unavailable-date"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_booking_unavailable_dates",
+  "info": {
+    "name": "UnavailableDates",
+    "icon": "calendar-times"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
